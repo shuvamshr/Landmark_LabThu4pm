@@ -9,18 +9,14 @@ import SwiftUI
 
 struct AttractionView: View {
     
-    @State var attractions: [Attraction] = [
-        Attraction(name: "Opera House", address: "Circular Quay", image: "operahouse"),
-        Attraction(name: "Darling Harbour", address: "Haymarket", image: "darlingharbour"),
-        Attraction(name: "Harbour Bridge", address: "Sydney", image: "harbourbridge")
-    ]
+    @ObservedObject var viewModel: AttractionViewModel
     
     @State private var isNewAttractionSheetShowing: Bool = false
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(attractions) { attraction in
+                ForEach(viewModel.attractions) { attraction in
                     NavigationLink {
                         AttractionDetailView(attraction: attraction)
                     } label: {
@@ -39,13 +35,10 @@ struct AttractionView: View {
                 }
             }
             .sheet(isPresented: $isNewAttractionSheetShowing) {
-                NewAttractionView(attractions: $attractions)
+                NewAttractionView(viewModel: viewModel)
             }
         }
     }
     
 }
 
-#Preview {
-    AttractionView()
-}

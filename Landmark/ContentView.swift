@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var viewModel = AttractionViewModel()
+    
     var body: some View {
         TabView {
-            AttractionView()
+            AttractionView(viewModel: viewModel)
                 .tabItem {
                     Label("Attractions", systemImage: "star.fill")
                 }
-            Text("MapView()")
+            MapView(viewModel: viewModel)
                 .tabItem {
                     Label("Map", systemImage: "mappin.and.ellipse.circle.fill")
                 }
