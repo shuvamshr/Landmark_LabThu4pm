@@ -9,15 +9,27 @@ import SwiftUI
 
 struct MapView: View {
     
-    @ObservedObject var viewModel: AttractionViewModel
+    @EnvironmentObject var viewModel: AttractionViewModel
     
     var body: some View {
         NavigationStack {
-            List {
+            ZStack {
                 ForEach(viewModel.attractions) { attraction in
-                    Text(attraction.name)
+                    VStack(spacing: 8) {
+                        Image(systemName: "mappin.and.ellipse")
+                            .font(.largeTitle)
+                            .foregroundStyle(.red)
+                            
+                        Text(attraction.name)
+                            .font(.caption)
+                            .bold()
+                            .foregroundStyle(.red)
+                    }
+                    .offset(CGSize(width: attraction.xCord, height: attraction.yCord))
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.blue.opacity(0.2))
             .navigationTitle("Map")
         }
     }
