@@ -17,6 +17,8 @@ struct NewAttractionView: View {
     
     @Environment(\.dismiss) private var dismiss
     
+    @State private var isConfirmationDialogShowing: Bool = false
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -46,15 +48,33 @@ struct NewAttractionView: View {
                         addNewAttraction()
                         dismiss()
                     }
+                    .disabled(isFieldEmpty)
                 }
                 
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
-                        dismiss()
+                        if isFieldEmpty {
+                            dismiss()
+                        } else {
+                            isConfirmationDialogShowing.toggle()
+                        }
                     }
                 }
             }
-            .interactiveDismissDisabled()
+            .interactiveDismissDisabled(!isFieldEmpty)
+            .confirmationDialog("You have unsaved changes", isPresented: $isConfirmationDialogShowing, titleVisibility: .visible) {
+                Button("Discard", role: .destructive) {
+                    dismiss()
+                }
+            }
+        }
+    }
+    
+    var isFieldEmpty: Bool {
+        if name.isEmpty || address.isEmpty {
+            return true
+        } else {
+            return false
         }
     }
     

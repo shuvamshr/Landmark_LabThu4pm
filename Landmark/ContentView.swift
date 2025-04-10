@@ -13,13 +13,13 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            MapView()
-                .tabItem {
-                    Label("Map", systemImage: "mappin.and.ellipse.circle.fill")
-                }
             AttractionView()
                 .tabItem {
                     Label("Attractions", systemImage: "star.fill")
+                }
+            MapView()
+                .tabItem {
+                    Label("Map", systemImage: "mappin.and.ellipse.circle.fill")
                 }
             Text("SettingsView()")
                 .tabItem {
@@ -30,4 +30,6 @@ struct ContentView: View {
     }
 }
 
-
+#Preview {
+    ContentView()
+}

@@ -24,6 +24,7 @@ struct MapView: View {
                             .font(.caption)
                             .bold()
                             .foregroundStyle(.red)
+                        
                     }
                     .offset(CGSize(width: attraction.xCord, height: attraction.yCord))
                 }
