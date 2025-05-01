@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import SkeletonUI
 
 struct AttractionDetailView: View {
     
     var attraction: Attraction
+    
+    @State private var name = ""
+    @State private var address = ""
     
     var body: some View {
         ScrollView {
@@ -19,13 +23,23 @@ struct AttractionDetailView: View {
                     .scaledToFill()
                     .frame(width: 200, height: 200)
                     .clipShape(Circle())
-                Text(attraction.name)
+                Text(name)
+                    .skeleton(with: name.isEmpty)
+                    .frame(width: 300, height: 40)
                     .font(.largeTitle)
                     .bold()
-                Text(attraction.address)
+                Text(address)
+                    .skeleton(with: address.isEmpty, shape: .rectangle)
+                    .frame(width: 300, height: 300)
                     .foregroundStyle(.secondary)
                 Spacer() 
             }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                name = attraction.name
+                address = attraction.address
+                           }
         }
     }
 }

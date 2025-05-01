@@ -13,14 +13,15 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            AttractionView()
-                .tabItem {
-                    Label("Attractions", systemImage: "star.fill")
-                }
             MapView()
                 .tabItem {
                     Label("Map", systemImage: "mappin.and.ellipse.circle.fill")
                 }
+            AttractionView()
+                .tabItem {
+                    Label("Attractions", systemImage: "star.fill")
+                }
+
             Text("SettingsView()")
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")

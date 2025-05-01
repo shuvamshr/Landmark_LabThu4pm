@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		30BBDCB52DC33B290089BE46 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 30BBDCB42DC33B290089BE46 /* SkeletonUI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		30B74BBF2D9515BE00038CE9 /* Landmark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Landmark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30BBDCB52DC33B290089BE46 /* SkeletonUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = Landmark;
 			packageProductDependencies = (
+				30BBDCB42DC33B290089BE46 /* SkeletonUI */,
 			);
 			productName = Landmark;
 			productReference = 30B74BBF2D9515BE00038CE9 /* Landmark.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = 30B74BB62D9515BE00038CE9;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				30BBDCB32DC33B290089BE46 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 30B74BC02D9515BE00038CE9 /* Products */;
 			projectDirPath = "";
@@ -326,6 +335,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		30BBDCB32DC33B290089BE46 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		30BBDCB42DC33B290089BE46 /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30BBDCB32DC33B290089BE46 /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 30B74BB72D9515BE00038CE9 /* Project object */;
 }
