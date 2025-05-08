@@ -21,7 +21,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Attractions", systemImage: "star.fill")
                 }
-
+            
             Text("SettingsView()")
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")

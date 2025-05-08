@@ -24,23 +24,27 @@ struct AttractionDetailView: View {
                     .frame(width: 200, height: 200)
                     .clipShape(Circle())
                 Text(name)
-                    .skeleton(with: name.isEmpty)
-                    .frame(width: 300, height: 40)
                     .font(.largeTitle)
                     .bold()
+                    .skeleton(with: name.isEmpty, appearance: .solid(color: .red, background: .blue))
+                    
                 Text(address)
-                    .skeleton(with: address.isEmpty, shape: .rectangle)
-                    .frame(width: 300, height: 300)
                     .foregroundStyle(.secondary)
-                Spacer() 
+                    .skeleton(with: address.isEmpty)
+                    
+                Spacer()
             }
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                name = attraction.name
-                address = attraction.address
-                           }
+                populateData()
+            }
         }
+    }
+    
+    private func populateData() {
+        name = attraction.name
+        address = attraction.address
     }
 }
 
